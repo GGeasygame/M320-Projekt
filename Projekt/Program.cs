@@ -36,13 +36,14 @@ namespace Projekt
                     case "car":
                         meansOfTransport = new Car();
                         break;
-                    case "plane":
-                        break;
                     case "horse":
+                        meansOfTransport = new Horse();
+                        break;
+                    default:
+                        meansOfTransport = new Car();
                         break;
 
                 }
-                meansOfTransport = new Car();
             } while (!isValidMeansOfTransportInput(meansOfTransportAnswer));
 
             Console.WriteLine("The journey will take you " + meansOfTransport.getSecondsUntilJourneyCompleted(journey) / 60.0 + " minutes");
