@@ -43,9 +43,10 @@ namespace Projekt
 
                 }
                 meansOfTransport = new Car();
-            } while (isValidMeansOfTransportInput(meansOfTransportAnswer));
+            } while (!isValidMeansOfTransportInput(meansOfTransportAnswer));
 
-            Console.WriteLine("The journey will take you " + meansOfTransport.getSecondsUntilJourneyCompleted(journey));
+            Console.WriteLine("The journey will take you " + meansOfTransport.getSecondsUntilJourneyCompleted(journey) / 60.0 + " minutes");
+            Console.ReadKey();
         }
 
         private static bool answeredYes(String answer)

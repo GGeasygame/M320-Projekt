@@ -24,10 +24,7 @@ namespace Projekt
             foreach (double distance in journey.getStops())
             {
                 distanceDriven += distance;
-                if (distanceDriven % metersUntilFuelDepleted == 0)
-                {
-                    time += secondsUntilRefueled;
-                }
+                time += secondsUntilRefueled * Math.Floor(distanceDriven / metersUntilFuelDepleted);
                 time += distance / getSpeedInMetersPerSecond();
             }
             return time;
