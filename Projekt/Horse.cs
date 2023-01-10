@@ -14,6 +14,10 @@ namespace Projekt
 
         public double getSecondsUntilJourneyCompleted(Journey journey)
         {
+            if (journey.getDistance() == 0)
+            {
+                return 0;
+            }
             double time = 0;
             double distanceRidden = 0;
             foreach (double distance in journey.getStops())

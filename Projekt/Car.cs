@@ -12,6 +12,7 @@ namespace Projekt
         private const double secondsUntilRefueled = 600;
         private const double speedInMetersPerSecond = 100;
 
+
         public override double getMetersUntilFuelDepleted()
         {
             return metersUntilFuelDepleted;
@@ -19,6 +20,10 @@ namespace Projekt
 
         public override double getSecondsUntilJourneyCompleted(Journey journey)
         {
+            if (journey.getDistance() == 0)
+            {
+                return 0;
+            }
             double time = 0;
             double distanceDriven = 0;
             foreach (double distance in journey.getStops())
