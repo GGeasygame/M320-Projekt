@@ -11,8 +11,47 @@ namespace Projekt
         static void Main(string[] args)
         {
             Journey journey = new Journey();
-            string answer;
+            Movable meansOfTransport = getInput(journey);
 
+            Console.WriteLine("The journey will take you " + meansOfTransport.getSecondsUntilJourneyCompleted(journey) / 60.0 + " minutes");
+            Console.WriteLine("Here is a short description to the means of transport you used: \n" + meansOfTransport.getDescription());
+            Console.ReadKey();
+        }
+
+        private static Movable getInput(Journey journey)
+        {
+            Movable meansOfTransport;
+            getStops(journey);
+            meansOfTransport = getMeansOfTransport();
+            return meansOfTransport;
+        }
+
+        private static Movable getMeansOfTransport()
+        {
+            string meansOfTransportAnswer;
+            do
+            {
+                Console.Write("Enter your means of transport (car, plane, horse): ");
+                meansOfTransportAnswer = Console.ReadLine();
+
+                switch (meansOfTransportAnswer)
+                {
+                    case "car":
+                        return new Car();
+                    case "horse":
+                        return new Horse();
+                    case "plane":
+                        return new Plane();
+                    default:
+                        return new Car();
+
+                }
+            } while (!isValidMeansOfTransportInput(meansOfTransportAnswer));
+        }
+
+        private static void getStops(Journey journey)
+        {
+            string answer;
             do
             {
                 Console.Write("Enter distance until next stop: ");
@@ -24,33 +63,6 @@ namespace Projekt
                 answer = Console.ReadLine();
 
             } while (answeredYes(answer));
-
-            string meansOfTransportAnswer;
-            Movable meansOfTransport;
-            do {
-                Console.Write("Enter your means of transport (car, plane, horse): ");
-                meansOfTransportAnswer = Console.ReadLine();
-                
-                switch (meansOfTransportAnswer)
-                {
-                    case "car":
-                        meansOfTransport = new Car();
-                        break;
-                    case "horse":
-                        meansOfTransport = new Horse();
-                        break;
-                    case "plane":
-                        meansOfTransport = new Plane();
-                        break;
-                    default:
-                        meansOfTransport = new Car();
-                        break;
-
-                }
-            } while (!isValidMeansOfTransportInput(meansOfTransportAnswer));
-            Console.WriteLine("The journey will take you " + meansOfTransport.getSecondsUntilJourneyCompleted(journey) / 60.0 + " minutes");
-            Console.WriteLine("Here is a short description to the means of transport you used: \n" + meansOfTransport.getDescription());
-            Console.ReadKey();
         }
 
         private static bool answeredYes(String answer)
