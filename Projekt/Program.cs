@@ -49,6 +49,7 @@ namespace Projekt
                 }
             } while (!isValidMeansOfTransportInput(meansOfTransportAnswer));
             Console.WriteLine("The journey will take you " + meansOfTransport.getSecondsUntilJourneyCompleted(journey) / 60.0 + " minutes");
+            Console.WriteLine("Here is a short description to the means of transport you used: \n" + meansOfTransport.getDescription());
             Console.ReadKey();
         }
 
