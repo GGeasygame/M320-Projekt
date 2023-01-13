@@ -16,5 +16,7 @@ namespace Projekt
         double getSecondsUntilJourneyCompleted(Journey journey);
 
         double getSpeedInMetersPerSecond();
+
+        string getDescription();
     }
 }
