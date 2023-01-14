@@ -28,11 +28,10 @@ namespace Projekt
 
         private static Movable getMeansOfTransport()
         {
-            string meansOfTransportAnswer;
-            do
+            while (true)
             {
                 Console.Write("Enter your means of transport (car, plane, horse): ");
-                meansOfTransportAnswer = Console.ReadLine();
+                string meansOfTransportAnswer = Console.ReadLine();
 
                 switch (meansOfTransportAnswer)
                 {
@@ -46,7 +45,7 @@ namespace Projekt
                         return new Car();
 
                 }
-            } while (!isValidMeansOfTransportInput(meansOfTransportAnswer));
+            }
         }
 
         private static void getStops(Journey journey)
@@ -62,13 +61,9 @@ namespace Projekt
                 Console.WriteLine("Would you like to add another stop? (y/n)");
                 answer = Console.ReadLine();
 
-            } while (answeredYes(answer));
+            } while (answer.Equals("y") || answer.Equals("yes"));
         }
 
-        private static bool answeredYes(String answer)
-        {
-            return answer.Equals("y") || answer.Equals("yes");
-        }
 
         private static bool isValidMeansOfTransportInput(string input)
         {
