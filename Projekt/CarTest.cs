@@ -21,6 +21,7 @@ namespace Projekt
             // act
             double result = car.getSecondsUntilJourneyCompleted(journey);
 
+            // assert
             Assert.AreEqual(100.0, result);
         }
 
@@ -35,6 +36,7 @@ namespace Projekt
             // act
             double result = car.getSecondsUntilJourneyCompleted(journey);
 
+            // assert
             Assert.AreEqual(19600.0, result);
         }
     }

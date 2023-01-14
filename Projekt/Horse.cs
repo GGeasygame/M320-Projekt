@@ -25,7 +25,7 @@ namespace Projekt
         /// <summary>
         /// Returns the time in seconds until a specified journey is complete. 
         /// The total time to complete the journey is calculated based on the speed, the break interval in meters and the break time in seconds.
-        /// A horse needs breaks at every stop and additionally always at a given interval.
+        /// A horse needs breaks at every stop (except the last one) and additionally always at a given interval.
         /// </summary>
         /// <param name="journey">the specified journey for which the time is calculated</param>
         /// <returns>The time in seconds needed to complete the journey</returns>
@@ -35,8 +35,9 @@ namespace Projekt
             {
                 return 0;
             }
-
-            double time = journey.getStops().Count * breakTimeInSeconds;
+            int stops = journey.getStops().Count;
+            int amountOfBreaks = stops == 1 || stops == 0 ? 0 : stops - 1; // Horse does not need break at the last stop because then the destination is already reached.
+            double time = amountOfBreaks * breakTimeInSeconds;
             time += journey.getDistance() / getSpeedInMetersPerSecond();
             time += breakTimeInSeconds * Math.Floor(journey.getDistance() / breakIntervalInMeters);
             return time;
