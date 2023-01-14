@@ -38,14 +38,22 @@ namespace Projekt
             return speedInMetersPerSecond;
         }
 
+
+        /// <summary>
+        /// Returns the time in seconds until a specified journey is complete. 
+        /// The total time to complete the journey is calculated based on the speed, meters until fuel depleted, time to refuel, landing time, takeoff time and number of stops.
+        /// </summary>
+        /// <param name="journey">the specified journey for which the time is calculated</param>
+        /// <returns>The time in seconds needed to complete the journey</returns>
         public override double getSecondsUntilJourneyCompleted(Journey journey)
         {
             if (journey.getDistance() == 0)
             {
                 return 0;
             }
-          
-            double time = (getSecondsUntilRefueled() + timeToLandInSeconds + timeToTakeOff) * Math.Floor(journey.getDistance() / getMetersUntilFuelDepleted());
+
+            double time = journey.getStops().Count * (timeToLandInSeconds + timeToTakeOff);
+            time += (getSecondsUntilRefueled() + timeToLandInSeconds + timeToTakeOff) * Math.Floor(journey.getDistance() / getMetersUntilFuelDepleted());
             time += journey.getDistance() / getSpeedInMetersPerSecond();
             return time;
         }
