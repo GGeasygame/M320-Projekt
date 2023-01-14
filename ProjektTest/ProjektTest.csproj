@@ -6,10 +6,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{742129DF-1CBF-42CA-886B-9B907DB9E70C}</ProjectGuid>
+    <ProjectGuid>{EB600B28-C80B-4914-BF48-58B4D473C3FA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Projekt</RootNamespace>
-    <AssemblyName>Projekt</AssemblyName>
+    <RootNamespace>ProjektTest</RootNamespace>
+    <AssemblyName>ProjektTest</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,15 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs" />
-    <Compile Include="CarTest.cs" />
-    <Compile Include="Horse.cs" />
-    <Compile Include="Journey.cs" />
-    <Compile Include="Movable.cs" />
-    <Compile Include="Plane.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vehicle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
