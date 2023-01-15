@@ -53,7 +53,7 @@ namespace Projekt
             string answer;
             do
             {
-                Console.Write("Enter distance until next stop: ");
+                Console.Write("Enter distance in metres until next stop: ");
 
                 double distance = Convert.ToDouble(Console.ReadLine());
                 journey.addStop(distance);
